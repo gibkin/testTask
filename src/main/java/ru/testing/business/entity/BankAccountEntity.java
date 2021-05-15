@@ -29,7 +29,7 @@ public class BankAccountEntity {
     BigDecimal balance;
 
     public static String generationNumberAccount() {
-        return UUID.randomUUID().toString().substring(0, 23).replaceAll("-", "");
+        return UUID.randomUUID().toString().substring(0, 23).replace("-", "");
     }
 
 }
