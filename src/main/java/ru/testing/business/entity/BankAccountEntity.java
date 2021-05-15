@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Currency;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -29,13 +29,7 @@ public class BankAccountEntity {
     BigDecimal balance;
 
     public static String generationNumberAccount() {
-        int sizeNumber = 20;
-        StringBuilder sb = new StringBuilder(sizeNumber);
-        for (int i = 0; i < sizeNumber; i++) {
-            int index = ThreadLocalRandom.current().nextInt(10);
-            sb.append(index);
-        }
-        return sb.toString();
+        return UUID.randomUUID().toString().substring(0, 23).replaceAll("-", "");
     }
 
 }
